@@ -10,6 +10,7 @@
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "preserveSymlinks": true,
         "outputPath": "dist/apps/slots-app",
         "index": "apps/slots-app/src/index.html",
         "browser": "apps/slots-app/src/main.ts",
