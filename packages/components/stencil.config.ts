@@ -1,8 +1,12 @@
 import { Config } from '@stencil/core';
 import { angularOutputTarget } from '@stencil/angular-output-target';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'components',
+  plugins: [
+    sass()
+  ],
   outputTargets: [
     {
       type: 'dist-custom-elements',

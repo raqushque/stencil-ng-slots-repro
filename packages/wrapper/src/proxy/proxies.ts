@@ -6,19 +6,20 @@ import { ProxyCmp } from './angular-component-lib/utils';
 
 import type { Components } from '@rockssh/slots/dist/components';
 
-import { defineCustomElement as defineMyComponent } from '@rockssh/slots/dist/components/my-component.js';
+import { defineCustomElement as defineSimpleComponent } from '@rockssh/slots/dist/components/simple-component.js';
+import { defineCustomElement as defineSimpleComponentDefaultSlot } from '@rockssh/slots/dist/components/simple-component-default-slot.js';
+import { defineCustomElement as defineSimpleComponentNoShadow } from '@rockssh/slots/dist/components/simple-component-no-shadow.js';
 @ProxyCmp({
-  defineCustomElementFn: defineMyComponent,
-  inputs: ['first', 'last', 'middle']
+  defineCustomElementFn: defineSimpleComponent
 })
 @Component({
-  selector: 'my-component',
+  selector: 'simple-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['first', 'last', 'middle'],
+  inputs: [],
 })
-export class MyComponent {
+export class SimpleComponent {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -28,12 +29,70 @@ export class MyComponent {
 
 
 @NgModule({
-  declarations: [MyComponent],
-  exports: [MyComponent]
+  declarations: [SimpleComponent],
+  exports: [SimpleComponent]
 })
-export class MyComponentModule { }
+export class SimpleComponentModule { }
 
 
-export declare interface MyComponent extends Components.MyComponent {}
+export declare interface SimpleComponent extends Components.SimpleComponent {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineSimpleComponentDefaultSlot
+})
+@Component({
+  selector: 'simple-component-default-slot',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class SimpleComponentDefaultSlot {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+@NgModule({
+  declarations: [SimpleComponentDefaultSlot],
+  exports: [SimpleComponentDefaultSlot]
+})
+export class SimpleComponentDefaultSlotModule { }
+
+
+export declare interface SimpleComponentDefaultSlot extends Components.SimpleComponentDefaultSlot {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineSimpleComponentNoShadow
+})
+@Component({
+  selector: 'simple-component-no-shadow',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class SimpleComponentNoShadow {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+@NgModule({
+  declarations: [SimpleComponentNoShadow],
+  exports: [SimpleComponentNoShadow]
+})
+export class SimpleComponentNoShadowModule { }
+
+
+export declare interface SimpleComponentNoShadow extends Components.SimpleComponentNoShadow {}
 
 

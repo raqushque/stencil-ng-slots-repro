@@ -1,0 +1,17 @@
+@use '../../styles/common/common-styles';
+
+.simple-component-no-shadow {
+  @extend %component-base;
+}
+
+.simple-component-no-shadow__description-container {
+  @extend %description-container;
+}
+
+.simple-component-no-shadow__slot-boundary-description {
+  @extend %slot-boundary-description;
+}
+
+.simple-component-no-shadow__default-slot-container {
+  @extend %default-slot-container;
+}

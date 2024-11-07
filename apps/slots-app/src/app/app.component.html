@@ -1,1 +1,69 @@
-<my-component></my-component>
+<div class="controls">
+  <button type="button" (click)="showContent = !showContent">
+    Toggle content
+  </button>
+</div>
+
+<div class="container">
+  <div class="example-block">
+    <div class="example-description">
+      This example shows the correct behaviour.
+    </div>
+    <simple-component>
+      @if (showContent) {
+        <span slot="content">I am slotted into 'content' slot in runtime</span>
+      }
+      <span>I am slotted in template</span>
+    </simple-component>
+  </div>
+
+  <div class="example-block">
+    <div class="example-description">
+      This example shows how element is "slotted" as a first child of Stencil component instead of being "slotted" into appropriate named slot.
+    </div>
+    <simple-component-no-shadow>
+      @if (showContent) {
+        <span slot="content">I am slotted into 'content' slot in runtime</span>
+      }
+      <p>I am slotted in template</p>
+    </simple-component-no-shadow>
+  </div>
+
+  <div class="example-block">
+    <div class="example-description">
+      This example shows that elements are slotted correctly if slot name is not specified (uses default).
+    </div>
+    <simple-component-default-slot>
+      @if (showContent) {
+        <span>I am slotted into default slot in runtime</span>
+      }
+      <p>I am slotted in template</p>
+    </simple-component-default-slot>
+  </div>
+
+  <div class="example-block">
+    <div class="example-description">
+      This example shows how element is "slotted" into default slot of Stencil component instead of being "slotted" into appropriate named slot.
+    </div>
+    <simple-component-default-slot>
+      @if (showContent) {
+        <span slot="content">I am slotted into 'content' slot in runtime</span>
+      }
+      <p>I am slotted in template</p>
+    </simple-component-default-slot>
+  </div>
+
+  <div class="example-block">
+    <div class="example-description">
+      However, it works correctly if we use condition inside initially slotted element.
+    </div>
+    <simple-component-default-slot>
+      <div slot="content">
+        @if (showContent) {
+          <span>I am added in runtime</span>
+        }
+      </div>
+      <p>I am slotted in template</p>
+    </simple-component-default-slot>
+  </div>
+</div>

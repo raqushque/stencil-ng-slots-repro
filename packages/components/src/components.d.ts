@@ -6,56 +6,58 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface SimpleComponent {
+    }
+    interface SimpleComponentDefaultSlot {
+    }
+    interface SimpleComponentNoShadow {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLSimpleComponentElement extends Components.SimpleComponent, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLSimpleComponentElement: {
+        prototype: HTMLSimpleComponentElement;
+        new (): HTMLSimpleComponentElement;
+    };
+    interface HTMLSimpleComponentDefaultSlotElement extends Components.SimpleComponentDefaultSlot, HTMLStencilElement {
+    }
+    var HTMLSimpleComponentDefaultSlotElement: {
+        prototype: HTMLSimpleComponentDefaultSlotElement;
+        new (): HTMLSimpleComponentDefaultSlotElement;
+    };
+    interface HTMLSimpleComponentNoShadowElement extends Components.SimpleComponentNoShadow, HTMLStencilElement {
+    }
+    var HTMLSimpleComponentNoShadowElement: {
+        prototype: HTMLSimpleComponentNoShadowElement;
+        new (): HTMLSimpleComponentNoShadowElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "simple-component": HTMLSimpleComponentElement;
+        "simple-component-default-slot": HTMLSimpleComponentDefaultSlotElement;
+        "simple-component-no-shadow": HTMLSimpleComponentNoShadowElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface SimpleComponent {
+    }
+    interface SimpleComponentDefaultSlot {
+    }
+    interface SimpleComponentNoShadow {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "simple-component": SimpleComponent;
+        "simple-component-default-slot": SimpleComponentDefaultSlot;
+        "simple-component-no-shadow": SimpleComponentNoShadow;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "simple-component": LocalJSX.SimpleComponent & JSXBase.HTMLAttributes<HTMLSimpleComponentElement>;
+            "simple-component-default-slot": LocalJSX.SimpleComponentDefaultSlot & JSXBase.HTMLAttributes<HTMLSimpleComponentDefaultSlotElement>;
+            "simple-component-no-shadow": LocalJSX.SimpleComponentNoShadow & JSXBase.HTMLAttributes<HTMLSimpleComponentNoShadowElement>;
         }
     }
 }

@@ -5,6 +5,9 @@
   "prefix": "app",
   "sourceRoot": "apps/slots-app/src",
   "tags": [],
+  "cache": {
+    "enabled": false
+  },
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
@@ -48,7 +51,8 @@
           "sourceMap": true
         }
       },
-      "defaultConfiguration": "production"
+      "defaultConfiguration": "production",
+      "dependsOn": ["^build"]
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
@@ -60,7 +64,8 @@
           "buildTarget": "slots-app:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "dependsOn": ["^build"]
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

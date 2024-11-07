@@ -1,0 +1,17 @@
+@use '../../styles/common/common-styles';
+
+:host {
+  @extend %component-base;
+}
+
+.simple-component__description-container {
+  @extend %description-container;
+}
+
+.simple-component__slot-boundary-description {
+  @extend %slot-boundary-description;
+}
+
+.simple-component__default-slot-container {
+  @extend %default-slot-container;
+}
