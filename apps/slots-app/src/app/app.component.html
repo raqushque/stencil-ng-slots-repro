@@ -2,6 +2,9 @@
   <button type="button" (click)="showContent = !showContent">
     Toggle content
   </button>
+  <button type="button" (click)="pushToArray()">
+    Push to array
+  </button>
 </div>
 
 <div class="container">
@@ -43,6 +46,19 @@
 
   <div class="example-block">
     <div class="example-description">
+      This example shows that "slotting" into named slot works on initial render, but not in runtime.
+    </div>
+    <simple-component-default-slot>
+      <span slot="content">I am slotted into 'content' slot in template</span>
+      @if (showContent) {
+        <span slot="content">I am slotted into 'content' slot in runtime</span>
+      }
+      <p>I am slotted in template</p>
+    </simple-component-default-slot>
+  </div>
+
+  <div class="example-block">
+    <div class="example-description">
       This example shows how element is "slotted" into default slot of Stencil component instead of being "slotted" into appropriate named slot.
     </div>
     <simple-component-default-slot>
@@ -58,11 +74,36 @@
       However, it works correctly if we use condition inside initially slotted element.
     </div>
     <simple-component-default-slot>
-      <div slot="content">
+      <div slot="content" class="example-slotted-container">
+        <p>I am a "slotted" container</p>
         @if (showContent) {
           <span>I am added in runtime</span>
         }
       </div>
+      <p>I am slotted in template</p>
+    </simple-component-default-slot>
+  </div>
+
+  <div class="example-block">
+    <div class="example-description">
+      This example uses array and component without default slot. Elements have "slot" specified.
+    </div>
+    <simple-component-no-shadow>
+      @for (item of exampleArray; track item) {
+        <p slot="content">I am added in runtime, #{{item}}</p>
+      }
+      <p>I am slotted in template</p>
+    </simple-component-no-shadow>
+  </div>
+
+  <div class="example-block">
+    <div class="example-description">
+      This example uses array and component with default slot. Elements have "slot" specified.
+    </div>
+    <simple-component-default-slot>
+      @for (item of exampleArray; track item) {
+        <p slot="content">I am added in runtime, #{{item}}</p>
+      }
       <p>I am slotted in template</p>
     </simple-component-default-slot>
   </div>

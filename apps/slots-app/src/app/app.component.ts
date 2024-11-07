@@ -12,4 +12,8 @@ import { SimpleComponentModule, SimpleComponentNoShadowModule, SimpleComponentDe
 export class AppComponent {
   title = 'slots-app';
   showContent = false;
+  exampleArray: number[] = [];
+  pushToArray() {
+    this.exampleArray.push(this.exampleArray.length + 1);
+  }
 }

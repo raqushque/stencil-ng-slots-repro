@@ -1,12 +1,16 @@
 .container {
-  display: flex;
-  flex-flow: row wrap;
   gap: 20px;
+  display: grid;
+  grid-template-columns: 500px 500px 500px;
+  grid-template-rows: 200px;
   .example-block {
     display: flex;
     flex-flow: column;
-    max-width: 500px;
   }
+}
+
+.example-slotted-container {
+  background-color: #ba9e11;
 }
 
 .controls {
