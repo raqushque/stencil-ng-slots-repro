@@ -5,8 +5,10 @@
   "prefix": "app",
   "sourceRoot": "apps/slots-app/src",
   "tags": [],
-  "cache": {
-    "enabled": false
+  "cli": {
+    "cache": {
+      "enabled": false
+    }
   },
   "targets": {
     "build": {
