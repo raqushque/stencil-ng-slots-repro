@@ -1,3 +1,10 @@
+<div class="notes">
+  <h3>General notes:</h3>
+  <ul>
+    <li>There is no difference between structural directives (ngFor, ngIf) and Built-in flow control</li>
+  </ul>
+</div>
+
 <div class="controls">
   <button type="button" (click)="showContent = !showContent">
     Toggle content
@@ -86,7 +93,19 @@
 
   <div class="example-block">
     <div class="example-description">
-      This example uses array and component without default slot. Elements have "slot" specified.
+      This example shows the correct behaviour.
+    </div>
+    <simple-component>
+      @for (item of exampleArray; track item) {
+        <p slot="content">I am added in runtime, #{{item}}</p>
+      }
+      <span>I am slotted in template</span>
+    </simple-component>
+  </div>
+
+  <div class="example-block">
+    <div class="example-description">
+      This example uses array and component without default slot. Elements have 'slot="content"'.
     </div>
     <simple-component-no-shadow>
       @for (item of exampleArray; track item) {
