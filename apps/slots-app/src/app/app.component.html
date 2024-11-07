@@ -23,7 +23,7 @@
     </div>
     <simple-component>
       @if (showContent) {
-        <span slot="content">I am slotted into 'content' slot in runtime</span>
+        <span slot="content">I am slotted into 'content' slot at runtime</span>
       }
       <span>I am slotted in template</span>
     </simple-component>
@@ -35,7 +35,7 @@
     </div>
     <simple-component-no-shadow>
       @if (showContent) {
-        <span slot="content">I am slotted into 'content' slot in runtime</span>
+        <span slot="content">I am slotted into 'content' slot at runtime</span>
       }
       <p>I am slotted in template</p>
     </simple-component-no-shadow>
@@ -47,7 +47,7 @@
     </div>
     <simple-component-default-slot>
       @if (showContent) {
-        <span>I am slotted into default slot in runtime</span>
+        <span>I am slotted into default slot at runtime</span>
       }
       <p>I am slotted in template</p>
     </simple-component-default-slot>
@@ -55,12 +55,12 @@
 
   <div class="example-block">
     <div class="example-description">
-      This example shows that "slotting" into named slot works on initial render, but not in runtime.
+      This example shows that "slotting" into named slot works on initial render, but not at runtime.
     </div>
     <simple-component-default-slot>
       <span slot="content">I am slotted into 'content' slot in template</span>
       @if (showContent) {
-        <span slot="content">I am slotted into 'content' slot in runtime</span>
+        <span slot="content">I am slotted into 'content' slot at runtime</span>
       }
       <p>I am slotted in template</p>
     </simple-component-default-slot>
@@ -72,7 +72,7 @@
     </div>
     <simple-component-default-slot>
       @if (showContent) {
-        <span slot="content">I am slotted into 'content' slot in runtime</span>
+        <span slot="content">I am slotted into 'content' slot at runtime</span>
       }
       <p>I am slotted in template</p>
     </simple-component-default-slot>
@@ -86,7 +86,7 @@
       <div slot="content" class="example-slotted-container">
         <p>I am a "slotted" container</p>
         @if (showContent) {
-          <span>I am added in runtime</span>
+          <span>I am added at runtime</span>
         }
       </div>
       <p>I am slotted in template</p>
@@ -99,7 +99,7 @@
     </div>
     <simple-component>
       @for (item of exampleArray; track item) {
-        <p slot="content">I am added in runtime, #{{item}}</p>
+        <p slot="content">I am added at runtime, #{{item}}</p>
       }
       <span>I am slotted in template</span>
     </simple-component>
@@ -111,7 +111,7 @@
     </div>
     <simple-component-no-shadow>
       @for (item of exampleArray; track item) {
-        <p slot="content">I am added in runtime, #{{item}}</p>
+        <p slot="content">I am added at runtime, #{{item}}</p>
       }
       <p>I am slotted in template</p>
     </simple-component-no-shadow>
@@ -123,7 +123,7 @@
     </div>
     <simple-component-default-slot>
       @for (item of exampleArray; track item) {
-        <p slot="content">I am added in runtime, #{{item}}</p>
+        <p slot="content">I am added at runtime, #{{item}}</p>
       }
       <p>I am slotted in template</p>
     </simple-component-default-slot>
