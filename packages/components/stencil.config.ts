@@ -7,6 +7,9 @@ export const config: Config = {
   plugins: [
     sass()
   ],
+  extras: {
+    appendChildSlotFix: true,
+  },
   outputTargets: [
     {
       type: 'dist-custom-elements',
